@@ -38,3 +38,8 @@ services:
       POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
       - ".:/app:rw"
+      - "eetratech-db-data:/var/lib/postgresql/data"
+
+
+volumes: 
+  eetratech-db-data:
