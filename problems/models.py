@@ -62,17 +62,17 @@ class Problem(models.Model):
 		default=PROGRAMMING,
 		max_length=50
 	)
-	file_one = models.FielField(
+	file_one = models.FileField(
 		upload_to="problems/files",
 		null=True,
 		blank=True,
 	)
-	file_two = models.FielField(
+	file_two = models.FileField(
 		upload_to="problems/files",
 		null=True,
 		blank=True,
 	)
-	file_three = models.FielField(
+	file_three = models.FileField(
 		upload_to="problems/files",
 		null=True,
 		blank=True,
