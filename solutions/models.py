@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from problems.models import Problem
 
 User = get_user_model()
 
@@ -65,12 +65,22 @@ class StudentSolution(Solution):
 	"""
 		This is the model for a studen't solution
 	"""
+	problem = models.ForeignKey(
+		Problem,
+		related_name="student_solutions",
+		on_delete=models.CASCADE,
+	)
 	upvotes = models.PositiveIntegerField(default=0)
 	downvotes = models.PositiveIntegerField(default=0)
 
 
 
 class RecommendedSolution(Solution):
+	problem = models.ForeignKey(
+		Problem,
+		related_name="recommended_solution",
+		on_delete=models.CASCADE,
+	)
 	link_to_video = models.URLField(
 		max_length=200,
 		help_text="Enter link to video posted on youtube, or any video hosting platform",

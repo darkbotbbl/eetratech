@@ -31,8 +31,6 @@ class Problem(models.Model):
 	)
 	created = models.DateTimeField(auto_now_add=True)
 	deadline = models.DateTimeField()
-	# todo - add an answers field
-	# todo - add an admin answer field
 	image_one = models.ImageField(
 		upload_to="problems/images",
 		null=True,

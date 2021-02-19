@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/usr/bin/python3.8",
+    "python.pythonPath": "/home/darkbotbbl/.local/share/virtualenvs/Pytest-9UH4Ixe1/bin/python",
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true
 }
