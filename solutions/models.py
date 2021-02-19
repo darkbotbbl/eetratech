@@ -1,7 +1,8 @@
-from django.db import models
-from django.contrib.auth import get_user_model
-from problems.models import Problem
 from autoslug import AutoSlugField
+from django.contrib.auth import get_user_model
+from django.db import models
+from django.urls import reverse
+from problems.models import Problem
 
 User = get_user_model()
 
@@ -67,7 +68,7 @@ class Solution(models.Model):
 
 class StudentSolution(Solution):
 	"""
-		This is the model for a studen't solution
+		This is the model for a student solution
 	"""
 	problem = models.ForeignKey(
 		Problem,
@@ -77,10 +78,14 @@ class StudentSolution(Solution):
 	upvotes = models.PositiveIntegerField(default=0)
 	downvotes = models.PositiveIntegerField(default=0)
 
+	def get_absolute_url(self):
+		return reverse("solutions:student-solution", kwargs={"slug": self.slug})
+	
+
 
 
 class RecommendedSolution(Solution):
-	problem = models.ForeignKey(
+	problem = models.OneToOneField(
 		Problem,
 		related_name="recommended_solution",
 		on_delete=models.CASCADE,
@@ -89,4 +94,8 @@ class RecommendedSolution(Solution):
 		max_length=200,
 		help_text="Enter link to video posted on youtube, or any video hosting platform",
 	)
+	
+
+	def get_absolute_url(self):
+		return reverse("solutions:recommended-solution", kwargs={"slug": self.slug})
 	

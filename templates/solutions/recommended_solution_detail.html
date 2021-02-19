@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ block.super }} Recommended Solution{% endblock %}
+
+
+{% block content %}
+    <h1 class="text-danger text-center">Recommended Solution</h1>
+
+    <h2>{{ recommended_solution.title }}</h2>
+{% endblock content %}
