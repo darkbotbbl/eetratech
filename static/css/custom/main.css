@@ -1,0 +1,19 @@
+#navbar-brand {
+	font-weight: 700;
+	font-size: 2rem;
+	margin-left: 0.5em;
+}
+
+.logo-text-1 {
+	color: red;
+}
+
+.navbar-nav {
+	font-size: 1.3rem;
+}
+
+@media screen and (max-width:767px) {
+	.nav-item {
+		margin-left: 0.7em;
+	}
+}
