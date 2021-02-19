@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from problems.models import Problem
+from autoslug import AutoSlugField
 
 User = get_user_model()
 
@@ -17,7 +18,10 @@ class Solution(models.Model):
 		blank=False,
 		null=False,
 	)
-	# todo - the description of answer field will be a rich text field
+	slug = AutoSlugField(
+		populate_from="title",
+		unique=True
+	)
 	description_of_answer = models.TextField(
 		help_text="Add a text explanation of the problem if there is any",
 		null=True,

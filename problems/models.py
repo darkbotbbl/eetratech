@@ -1,4 +1,5 @@
 from django.db import models
+from autoslug import AutoSlugField
 
 
 class Problem(models.Model):
@@ -28,6 +29,10 @@ class Problem(models.Model):
 		null=False, 
 		blank=False, 
 		help_text="Enter the problem statement"
+	)
+	slug = AutoSlugField(
+		populate_from="title",
+		unique=True
 	)
 	created = models.DateTimeField(auto_now_add=True)
 	deadline = models.DateTimeField()
