@@ -75,3 +75,10 @@ class Problem(models.Model):
 		null=True,
 		blank=True,
 	)
+
+	class Meta:
+		ordering = ["-created"]
+
+	def __str__(self):
+		return self.title
+	
