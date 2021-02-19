@@ -45,6 +45,8 @@ aldryn_addons.settings.load(locals())
 INSTALLED_APPS.extend([
     # Extend the INSTALLED_APPS setting by listing additional applications here
     "users.apps.UsersConfig",
+    "problems.apps.ProblemsConfig",
+    "solutions.apps.SolutionsConfig",
 ])
 
 # To see the settings that have been applied, use the Django diffsettings 
