@@ -6,5 +6,5 @@ from .views import ProblemDetailView
 app_name = "problems"
 
 urlpatterns = [
-    path('problems/', ProblemDetailView.as_view(), name="problem-detail"),
+    path('<str:slug>/', ProblemDetailView.as_view(), name="problem-detail"),
 ]

@@ -1,5 +1,6 @@
 from django.db import models
 from autoslug import AutoSlugField
+from django.urls import reverse
 
 
 class Problem(models.Model):
@@ -86,4 +87,7 @@ class Problem(models.Model):
 
 	def __str__(self):
 		return self.title
+	
+	def get_absolute_url(self):
+    		return reverse("problems:problem-detail", kwargs={"slug": self.slug})
 	
