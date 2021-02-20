@@ -36,6 +36,10 @@ body {
 	font-weight: 700;
 }
 
+.problem__description {
+	color: rgba(0, 0, 0, 0.808);
+}
+
 @media screen and (max-width: 767px) {
 	.problem__box {
 		width: 100%;
@@ -43,11 +47,16 @@ body {
 		margin: auto;
 		margin-top: 1rem;
 	}
+
+	.problem__box-problem-details p {
+		padding: 0;
+		margin: 2px;
+	}
 }
 
 .problem__info-key {
 	font-weight: 600;
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	color: rgba(0, 0, 0, 0.8);
 }
 
