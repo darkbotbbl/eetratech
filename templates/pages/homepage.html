@@ -5,69 +5,35 @@
 
 
 {% block content %}
-	{% comment %} {% for problem in problems %}
-		<h4><a href="{{ problem.get_absolute_url }}">{{ problem.title }}</a></h4>
-	{% endfor %} {% endcomment %}
+	
+	{% for problem in problems %}
+		<div class="problem__box">
+			<a href="{{ problem.get_absolute_url }}" class="problem__link"><h3 class="problem__title">{{ problem.title }}</h3></a>
+			<p class="problem__description">{{ problem.problem_description|truncatewords:40 }}</p>
+			<div class="row problem__box-problem-details mt-3">
+				<div class="col-12 col-md-3">
+					<p><span class="problem__info-key">Category: </span><span class="problem__info-value">{{ problem.get_category_display	 }}</span></p>
+				</div>
+				<div class="col-12 col-md-3">
+					<p><span class="problem__info-key">Difficulty: </span><span class="problem__info-value">{{ problem.get_difficulty_display }}</span> </p>
+				</div>
+				<div class="col-12 col-md-3">
+					<span class="problem__info-key">Posted: </span><span class="problem__info-value">{{ problem.created|date:"d M Y" }}</span> 
+				</div>
+				<div class="col-12 col-md-3">
+					<span class="problem__info-key">Points worth: </span><span class="problem__info-value">{{ problem.points_worth }}</span> 
+				</div>
 
-
-	<!-- todo 
-		-> Add a button for people to add solutions on the problem box
-		-> Add a button for people to view all solutions on the problem box
-		-> Add an info where people see the number of points a problem is worth
-	 -->
-
-	<div class="problem__box">
-		<h3 class="problem__title">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</h3>
-		<p class="problem__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus non enim praesent elementum. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Consectetur a erat nam at lectus urna duis convallis convallis.</p>
-		<div class="row problem__box-problem-details mt-3">
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Category: </span><span class="problem__info-value">Programming</span></p>
-			</div>
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Difficulty: </span><span class="problem__info-value">Medium</span> </p>
-			</div>
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Number of Solutions: </span><span class="problem__info-value"> 6</span></p>
-			</div>
-			<div class="col-12 col-md-3">
-				<span class="problem__info-key">Posted: </span><span class="problem__info-value">25th-April-2020</span> 
+				
+				<div class="col-md-6 col-6 mt-2 text-start">
+					<button class="btn btn-primary">Add Solution</button>
+				</div>
+				<div class=" col-md-6 col-6 mt-2 text-end">
+					<a href="{{ problem.get_absolute_url }}" class="btn btn-secondary">All Solutions</a>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="problem__box">
-		<h3 class="problem__title">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</h3>
-		<p class="problem__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus non enim praesent elementum. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Consectetur a erat nam at lectus urna duis convallis convallis.</p>
-		<div class="row problem__box-problem-details mt-1">
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Category: </span><span class="problem__info-value">Programming</span></p>
-			</div>
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Difficulty: </span><span class="problem__info-value">Medium</span> </p>
-			</div>
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Number of Solutions: </span><span class="problem__info-value"> 6</span></p>
-			</div>
-			<div class="col-12 col-md-3">
-				<span class="problem__info-key">Posted: </span><span class="problem__info-value">25th-April-2020</span> 
-			</div>
-		</div>
-	</div>
-	<div class="problem__box">
-		<h3 class="problem__title">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</h3>
-		<p class="problem__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Purus non enim praesent elementum. Mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Consectetur a erat nam at lectus urna duis convallis convallis.</p>
-		<div class="row problem__box-problem-details mt-3">
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Category: </span><span class="problem__info-value">Programming</span></p>
-			</div>
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Difficulty: </span><span class="problem__info-value">Medium</span> </p>
-			</div>
-			<div class="col-12 col-md-3">
-				<p><span class="problem__info-key">Number of Solutions: </span><span class="problem__info-value"> 6</span></p>
-			</div>
-			<div class="col-12 col-md-3">
-				<span class="problem__info-key">Posted: </span><span class="problem__info-value">25th-April-2020</span> 
-			</div>
-		</div>
-	</div>
+	{% empty %}
+		<h3>No problems uploaded yet</h3>
+	{% endfor %}
 {% endblock content %}
