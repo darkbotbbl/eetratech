@@ -4,26 +4,33 @@
 
 
 {% block content %}
-    <h2 class="text-info text-center mt-5">Problem detail page</h2>
+    <div class="problem__detail">
+        <h2 class="text-center">{{ problem.title }}</h2>
+        
+        <!--
+            todo -> make the list below responsive on mobile
+        -->
+        <ul class="problem-info-list">
+            <li class="problem-info-list-item">
+                <p class="item-key">Posted</p>
+                <p class="item-value">{{ problem.created|date:"d, M Y" }}</p>
+            </li>
+            <li class="problem-info-list-item">
+                <p class="item-key">Deadline</p>
+                <p class="item-value">{{ problem.deadline|date:"d, M Y" }}</p>
+            </li>
+            <li class="problem-info-list-item">
+                <p class="item-key">Difficulty</p>
+                <p class="item-value">{{ problem.get_difficulty_display }}</p>
+            </li>
+            <li class="problem-info-list-item">
+                <p class="item-key">Points</p>
+                <p class="item-value">{{ problem.points_worth }}</p>
+            </li>
+        </ul>
+    </div>
 
-    <h2 class="text-primary text-center">Problem details</h2>
-    <h3>{{ problem.title }}</h3>
+    <h3 class="mt-5">Problem Description</h3>
     <p>{{ problem.problem_description }}</p>
-    <p>{{ problem.created }}</p>
-    <p>{{ problem.deadline }}</p>
-
-    <h2 class="text-primary text-center">Recommended Solution</h2>
-    {% if problem.recommended_solution %}
-        <p><a href="{{ problem.recommended_solution.get_absolute_url }}">{{ problem.recommended_solution.title }}</a></p>
-    {% else %}
-        <h3 class="text-danger">Sorry, no Recommended solution uploaded yet, come back later</h3>
-    {% endif %}
-
-    <h2 class="text-primary text-center">Student Solutions</h2>
-    {% for solution in problem.student_solutions.all %}
-        <p><a href="{{ solution.get_absolute_url }}">{{ solution.title }}</a></p>
-    {% empty %}
-        <h3 class="text-danger">No answers for this problem yet</h3>
-    {% endfor %}
 
 {% endblock content %}
