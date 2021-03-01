@@ -1,10 +1,11 @@
 body {
-	font-family: 'Montserrat', sans-serif;	
+	font-family: 'Montserrat', sans-serif;
 }
 
 #navbar-brand {
 	font-weight: 700;
 	font-size: 1.8rem;
+	font-family: 'Cedarville Cursive', cursive;
 }
 
 .logo-text-1 {
