@@ -74,10 +74,6 @@ body {
 
 /** Problem Detail Page */
 /* ------------------------------------ */
-.problem__detail {
-	
-}
-
 .problem__detail h3 {
 	font-weight: 800;
 }
@@ -92,11 +88,10 @@ body {
 
 .problem__detail ul li {
 	float: left;
-	padding: 1rem;
+	padding: 0.2rem;
 	width: 25%;
 	text-align: center;
-	box-shadow: 1px 1px 2px 2px inset rgb(0, 0, 0.5),
-				-1px -1px 2px 2px inset rgba(0, 0, 0, 0.2);
+	box-shadow: 2px 3px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .problem__detail ul li p {
@@ -105,13 +100,47 @@ body {
 
 .item-key {
 	font-weight: 600;
-	font-size: 1.2rem;
-	color: rgba(0, 0, 255, 0.774);
+	font-size: 1.3rem;
+	color:rgb(37, 0, 71);
 }
 
-.problem-des-cont {
-
+.item-value {
+	font-size: 1rem;
+	font-weight: 300;
 }
+
+@media screen and (max-width: 767px) {
+
+	.problem__detail ul {
+		list-style: none;
+		display: inline;
+		justify-content: left;
+		margin: 0;
+	}
+	
+	.problem__detail ul li {
+		float: none;
+		padding: 0;
+		text-align: left;
+		box-shadow: none;
+		width: 100%;
+	}
+	
+	.problem__detail ul li p {
+		margin: 0;
+	}
+	
+	.problem__detail ul li p {
+		display: inline;
+	}
+
+	.item-key {
+		font-weight: 600;
+		font-size: 1.2rem;
+		color: rgba(0, 0, 255, 0.774);
+	}
+}
+
 
 .problem-des-cont h4 {
 	font-weight: 600;
