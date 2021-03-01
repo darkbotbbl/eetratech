@@ -5,19 +5,20 @@
 
 {% block content %}
     <div class="problem__detail">
-        <h2 class="text-center">{{ problem.title }}</h2>
+        <h3 class="text-left pb-2">{{ problem.title }}</h3>
         
         <!--
             todo -> make the list below responsive on mobile
         -->
+
         <ul class="problem-info-list">
             <li class="problem-info-list-item">
                 <p class="item-key">Posted</p>
                 <p class="item-value">{{ problem.created|date:"d, M Y" }}</p>
             </li>
             <li class="problem-info-list-item">
-                <p class="item-key">Deadline</p>
-                <p class="item-value">{{ problem.deadline|date:"d, M Y" }}</p>
+                <p class="item-key">Category</p>
+                <p class="item-value">{{ problem.get_category_display }}</p>
             </li>
             <li class="problem-info-list-item">
                 <p class="item-key">Difficulty</p>
@@ -28,9 +29,11 @@
                 <p class="item-value">{{ problem.points_worth }}</p>
             </li>
         </ul>
-    </div>
 
-    <h3 class="mt-5">Problem Description</h3>
-    <p>{{ problem.problem_description }}</p>
+        <div class="problem-des-cont mt-4">
+            <h4 class="">Problem Description</h4>
+            <p>{{ problem.problem_description }}</p>
+        </div>
+    </div>
 
 {% endblock content %}

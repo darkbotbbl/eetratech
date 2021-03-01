@@ -77,6 +77,10 @@ body {
 	
 }
 
+.problem__detail h3 {
+	font-weight: 800;
+}
+
 .problem__detail ul {
 	list-style: none;
 	display: flex;
@@ -102,4 +106,19 @@ body {
 	font-weight: 600;
 	font-size: 1.2rem;
 	color: rgba(0, 0, 255, 0.774);
+}
+
+.problem-des-cont {
+
+}
+
+.problem-des-cont h4 {
+	font-weight: 600;
+}
+
+.problem-des-cont p {
+	font-weight: normal;
+	font-size: 1.2rem;
+	line-height: 30px;
+	color: rgba(0, 0, 0, 0.8);
 }
