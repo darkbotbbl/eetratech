@@ -28,36 +28,6 @@ class Solution(models.Model):
 		null=True,
 		blank=True,
 	)
-	image_one = models.ImageField(
-		upload_to="problems/images",
-		null=True,
-		blank=True
-	)
-	image_two = models.ImageField(
-		upload_to="problems/images",
-		null=True,
-		blank=True
-	)
-	image_three = models.ImageField(
-		upload_to="problems/images",
-		null=True,
-		blank=True
-	)
-	file_one = models.FileField(
-		upload_to="solutions/files",
-		null=True,
-		blank=True,
-	)
-	file_two = models.FileField(
-		upload_to="solutions/files",
-		null=True,
-		blank=True,
-	)
-	file_three = models.FileField(
-		upload_to="solutions/files",
-		null=True,
-		blank=True,
-	)
 
 	def __str__(self):
 		return self.title
@@ -99,3 +69,32 @@ class RecommendedSolution(Solution):
 	def get_absolute_url(self):
 		return reverse("solutions:recommended-solution", kwargs={"slug": self.slug})
 	
+
+class File(models.Model):
+    problem = models.ForeignKey(
+        Solution,
+        related_name="files",
+        on_delete=models.CASCADE,
+    )
+    title = models.CharField(max_length=255, help_text="Enter a name to identify this file")
+    file = models.FileField(
+        upload_to="solutions/files/"
+    )
+      
+    def __str__(self):
+        return self.title
+
+
+class Image(models.Model):
+    problem = models.ForeignKey(
+    	Solution,
+        related_name="images",
+        on_delete=models.CASCADE,
+    )
+    title = models.CharField(max_length=255, help_text="Enter a name to identify this image")
+    image = models.ImageField(
+        upload_to="solutions/images"
+    )
+
+    def __str__(self):
+        return self.title
