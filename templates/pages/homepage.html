@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ block.super }}The homepage{% endblock title %}
+
+
+{% block content %}
+	
+	{% for problem in problems %}
+		<div class="problem__box">
+			<a href="{{ problem.get_absolute_url }}" class="problem__link"><h3 class="problem__title">{{ problem.title }}</h3></a>
+			<p class="problem__description">{{ problem.problem_description|truncatewords:40 }}</p>
+			<div class="row problem__box-problem-details mt-3">
+				<div class="col-12 col-md-3">
+					<p><span class="problem__info-key">Category: </span><span class="problem__info-value">{{ problem.get_category_display	 }}</span></p>
+				</div>
+				<div class="col-12 col-md-3">
+					<p><span class="problem__info-key">Difficulty: </span><span class="problem__info-value">{{ problem.get_difficulty_display }}</span> </p>
+				</div>
+				<div class="col-12 col-md-3">
+					<span class="problem__info-key">Posted: </span><span class="problem__info-value">{{ problem.created|date:"d M Y" }}</span> 
+				</div>
+				<div class="col-12 col-md-3">
+					<span class="problem__info-key">Points worth: </span><span class="problem__info-value">{{ problem.points_worth }}</span> 
+				</div>
+
+				
+				<div class="col-md-6 col-6 mt-2 text-start">
+					<button class="btn btn-primary">Add Solution</button>
+				</div>
+				<div class=" col-md-6 col-6 mt-2 text-end">
+					<a href="{{ problem.get_absolute_url }}" class="btn btn-secondary">All Solutions</a>
+				</div>
+			</div>
+		</div>
+	{% empty %}
+		<h3>No problems uploaded yet</h3>
+	{% endfor %}
+{% endblock content %}

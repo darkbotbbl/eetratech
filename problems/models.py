@@ -1,4 +1,6 @@
 from django.db import models
+from autoslug import AutoSlugField
+from django.urls import reverse
 
 
 class Problem(models.Model):
@@ -28,6 +30,10 @@ class Problem(models.Model):
 		null=False, 
 		blank=False, 
 		help_text="Enter the problem statement"
+	)
+	slug = AutoSlugField(
+		populate_from="title",
+		unique=True
 	)
 	created = models.DateTimeField(auto_now_add=True)
 	deadline = models.DateTimeField()
@@ -81,4 +87,7 @@ class Problem(models.Model):
 
 	def __str__(self):
 		return self.title
+	
+	def get_absolute_url(self):
+    		return reverse("problems:problem-detail", kwargs={"slug": self.slug})
 	

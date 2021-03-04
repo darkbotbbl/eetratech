@@ -1,0 +1,154 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#navbar-brand {
+	font-weight: 700;
+	font-size: 1.8rem;
+	font-family: 'Cedarville Cursive', cursive;
+}
+
+.logo-text-1 {
+	color: red;
+}
+
+.navbar-nav {
+	font-size: 1.3rem;
+}
+
+@media screen and (max-width:767px) {
+	.nav-item {
+		margin-left: 0.7em;
+	}
+}
+
+/* Problem Listing */
+.problem__box {
+	width: 90%;
+	padding: 1rem 5rem;
+	margin: auto;
+	margin-top: 1.2rem;
+	box-shadow: 2px 2px 1px 2px rgba(0, 0, 0, 0.2);
+	background-color: rgba(245, 245, 245, 0.651);
+}
+
+.problem__box h3 {
+	font-size: 1.4rem;
+	font-weight: 700;
+}
+
+.problem__description {
+	color: rgba(0, 0, 0, 0.808);
+}
+
+.problem__link {
+	color: black;
+	text-decoration: none;
+}
+
+@media screen and (max-width: 767px) {
+	.problem__box {
+		width: 100%;
+		padding: 1rem 1rem;
+		margin: auto;
+		margin-top: 1rem;
+	}
+
+	.problem__box-problem-details p {
+		padding: 0;
+		margin: 2px;
+	}
+}
+
+.problem__info-key {
+	font-weight: 600;
+	font-size: 1.1rem;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+.problem__info-value {
+	font-weight: 400;
+	color: rgba(255, 0, 0, 0.9);
+}
+
+
+/** Problem Detail Page */
+/* ------------------------------------ */
+.problem__detail h3 {
+	font-weight: 800;
+}
+
+.problem__detail ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin: 0;
+}
+
+.problem__detail ul li {
+	float: left;
+	padding: 0.2rem;
+	width: 25%;
+	text-align: center;
+	box-shadow: 2px 3px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.problem__detail ul li p {
+	margin: 0;
+}
+
+.item-key {
+	font-weight: 600;
+	font-size: 1.3rem;
+	color:rgb(37, 0, 71);
+}
+
+.item-value {
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+@media screen and (max-width: 767px) {
+
+	.problem__detail ul {
+		list-style: none;
+		display: inline;
+		justify-content: left;
+		margin: 0;
+	}
+	
+	.problem__detail ul li {
+		float: none;
+		padding: 0;
+		text-align: left;
+		box-shadow: none;
+		width: 100%;
+	}
+	
+	.problem__detail ul li p {
+		margin: 0;
+	}
+	
+	.problem__detail ul li p {
+		display: inline;
+	}
+
+	.item-key {
+		font-weight: 600;
+		font-size: 1.2rem;
+		color: rgba(0, 0, 255, 0.774);
+	}
+}
+
+
+.problem-des-cont h4 {
+	font-weight: 600;
+}
+
+.problem-des-cont p {
+	font-weight: normal;
+	font-size: 1.2rem;
+	line-height: 30px;
+	color: rgba(0, 0, 0, 0.8);
+}

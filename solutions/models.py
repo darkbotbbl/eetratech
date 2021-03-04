@@ -1,5 +1,7 @@
-from django.db import models
+from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
+from django.db import models
+from django.urls import reverse
 from problems.models import Problem
 
 User = get_user_model()
@@ -17,7 +19,10 @@ class Solution(models.Model):
 		blank=False,
 		null=False,
 	)
-	# todo - the description of answer field will be a rich text field
+	slug = AutoSlugField(
+		populate_from="title",
+		unique=True
+	)
 	description_of_answer = models.TextField(
 		help_text="Add a text explanation of the problem if there is any",
 		null=True,
@@ -63,7 +68,7 @@ class Solution(models.Model):
 
 class StudentSolution(Solution):
 	"""
-		This is the model for a studen't solution
+		This is the model for a student solution
 	"""
 	problem = models.ForeignKey(
 		Problem,
@@ -73,10 +78,14 @@ class StudentSolution(Solution):
 	upvotes = models.PositiveIntegerField(default=0)
 	downvotes = models.PositiveIntegerField(default=0)
 
+	def get_absolute_url(self):
+		return reverse("solutions:student-solution", kwargs={"slug": self.slug})
+	
+
 
 
 class RecommendedSolution(Solution):
-	problem = models.ForeignKey(
+	problem = models.OneToOneField(
 		Problem,
 		related_name="recommended_solution",
 		on_delete=models.CASCADE,
@@ -85,4 +94,8 @@ class RecommendedSolution(Solution):
 		max_length=200,
 		help_text="Enter link to video posted on youtube, or any video hosting platform",
 	)
+	
+
+	def get_absolute_url(self):
+		return reverse("solutions:recommended-solution", kwargs={"slug": self.slug})
 	
