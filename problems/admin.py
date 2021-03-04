@@ -6,11 +6,14 @@ from solutions.models import StudentSolution
 class ImageInline(admin.StackedInline):
         model = Image
         extra = 1
+        max_num = 10
 
 
 class FileInline(admin.StackedInline):
         model = File
         extra = 1
+        max_num = 10
+
 
 class ProblemAdmin(admin.ModelAdmin):
     list_display = ["title", "created"]
